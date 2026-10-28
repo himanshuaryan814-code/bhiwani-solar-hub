@@ -1,0 +1,238 @@
+.section {
+  padding: 92px 0;
+  background: #f5f8fc;
+}
+
+.heading {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 42px;
+}
+
+.heading > div {
+  max-width: 650px;
+}
+
+.eyebrow {
+  color: #1769aa;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.17em;
+}
+
+.heading h2 {
+  margin: 14px 0 0;
+  color: #102a43;
+  font-family: 'Manrope', sans-serif;
+  font-size: clamp(32px, 4vw, 48px);
+  font-weight: 600;
+  letter-spacing: -0.055em;
+  line-height: 1.13;
+}
+
+.heading > p {
+  max-width: 440px;
+  margin: 0 0 3px;
+  color: #61738a;
+  font-size: 14px;
+  line-height: 1.85;
+}
+
+.subtitle {
+  margin: 42px 0 18px;
+  color: #72849a;
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: 0.16em;
+}
+
+.gallery {
+  columns: 4;
+  column-gap: 18px;
+}
+
+.project {
+  display: inline-block;
+  width: 100%;
+  margin: 0 0 18px;
+  overflow: hidden;
+  break-inside: avoid;
+  border: 1px solid rgba(16, 42, 67, 0.08);
+  border-radius: 14px;
+  background: #fff;
+  box-shadow: 0 9px 26px rgba(16, 42, 67, 0.07);
+}
+
+.imageButton {
+  display: block;
+  width: 100%;
+  padding: 0;
+  overflow: hidden;
+  border: 0;
+  background: #eaf3fc;
+  cursor: zoom-in;
+}
+
+.thumbnail {
+  display: block;
+  width: 100%;
+  height: auto;
+  transition: transform 0.35s ease;
+}
+
+.imageButton:hover .thumbnail,
+.imageButton:focus-visible .thumbnail {
+  transform: scale(1.035);
+}
+
+.project figcaption {
+  padding: 10px 13px 11px;
+  color: #52677e;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.025em;
+}
+
+.lightbox {
+  position: fixed;
+  z-index: 1000;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  padding: 24px;
+  background: rgba(8, 24, 40, 0.86);
+}
+
+.lightboxContent {
+  position: relative;
+  display: grid;
+  grid-template-columns: 52px minmax(0, min(1200px, calc(100vw - 200px))) 52px;
+  grid-template-rows: minmax(0, min(84vh, 900px)) auto;
+  align-items: center;
+  justify-items: center;
+  gap: 12px;
+  max-width: 100%;
+}
+
+.originalFrame {
+  position: relative;
+  grid-column: 2;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  touch-action: pan-y;
+}
+
+.original {
+  object-fit: contain;
+}
+
+.control {
+  display: grid;
+  width: 44px;
+  height: 44px;
+  place-items: center;
+  border: 1px solid rgba(255, 255, 255, 0.44);
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.12);
+  color: #fff;
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.control:hover {
+  transform: scale(1.05);
+  background: rgba(255, 255, 255, 0.25);
+}
+
+.close {
+  position: absolute;
+  z-index: 1;
+  top: -54px;
+  right: 0;
+}
+
+.previous {
+  grid-column: 1;
+  grid-row: 1;
+}
+
+.next {
+  grid-column: 3;
+  grid-row: 1;
+}
+
+.counter {
+  grid-column: 1 / -1;
+  grid-row: 2;
+  margin: 0;
+  color: #fff;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+}
+
+@media (max-width: 1000px) {
+  .gallery {
+    columns: 3;
+  }
+}
+
+@media (max-width: 700px) {
+  .section {
+    padding: 66px 0;
+  }
+
+  .heading {
+    display: block;
+  }
+
+  .heading > p {
+    margin-top: 16px;
+  }
+
+  .subtitle {
+    margin-top: 30px;
+  }
+
+  .gallery {
+    columns: 2;
+    column-gap: 12px;
+  }
+
+  .project {
+    margin-bottom: 12px;
+    border-radius: 11px;
+  }
+
+  .project figcaption {
+    padding: 8px 9px;
+    font-size: 9px;
+  }
+
+  .lightbox {
+    padding: 14px;
+  }
+
+  .lightboxContent {
+    grid-template-columns: 42px minmax(0, 1fr) 42px;
+    grid-template-rows: minmax(0, 82vh) auto;
+    gap: 5px;
+    width: 100%;
+  }
+
+  .control {
+    width: 38px;
+    height: 38px;
+  }
+
+  .close {
+    top: -48px;
+  }
+}
+
+@media (max-width: 380px) {
+  .gallery {
+    columns: 1;
+  }
+}
